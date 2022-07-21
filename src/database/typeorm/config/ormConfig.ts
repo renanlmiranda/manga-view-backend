@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 
@@ -11,4 +12,6 @@ export const AppDataSource = new DataSource({
     synchronize: true,
     logging: false,
     entities: ["src/database/typeorm/entities/**.entity.ts"],
+    migrations: ["src/database/typeorm/migrations/*.ts"],
+    migrationsTableName: "tb_migrations",
 });
