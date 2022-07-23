@@ -12,6 +12,6 @@ export const AppDataSource = new DataSource({
     synchronize: true,
     logging: false,
     entities: ["src/database/typeorm/entities/**.entity.ts"],
-    migrations: ["src/database/typeorm/migrations/*.ts"],
+    migrations: ["src/database/typeorm/migrations/*{.ts,.js}"],
     migrationsTableName: "tb_migrations",
 });
