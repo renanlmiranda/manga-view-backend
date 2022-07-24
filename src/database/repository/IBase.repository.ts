@@ -1,4 +1,4 @@
 export interface IBaseRepository<T> {
-    save(t: T): Promise<any>;
-    exists(t: T): Promise<boolean>;
+    save(t: T): Promise<void>;
+    exists(value: string): Promise<boolean>;
 }
