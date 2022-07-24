@@ -1,4 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+
+import { ChapterEntity } from "./chapter.entity";
 
 @Entity({ name: "tb_book" })
 export class BookEntity {
@@ -10,4 +12,7 @@ export class BookEntity {
 
     @Column({ name: "book_description" })
     description: string;
+
+    @OneToMany(() => ChapterEntity, (chapter) => chapter.book)
+    chapters: ChapterEntity[];
 }

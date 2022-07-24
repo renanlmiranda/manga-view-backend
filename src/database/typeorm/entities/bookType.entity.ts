@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn } from "typeorm";
+import { Entity, Column, PrimaryColumn, OneToMany } from "typeorm";
 
 @Entity({ name: "tb_book_type" })
 export class BookTypeEntity {
