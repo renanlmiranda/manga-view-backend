@@ -3,6 +3,7 @@ interface IUserProps {
     lastName: string;
     email: string;
     role: string;
+    password: string;
 }
 
 export class User {
@@ -27,6 +28,10 @@ export class User {
 
     get role(): string {
         return this.props.role;
+    }
+
+    get password(): string {
+        return this.props.password;
     }
 
     private constructor(props: IUserProps, id?: number) {

@@ -17,8 +17,11 @@ export class UserEntity {
     @Column({ name: "user_last_name" })
     lastName: string;
 
-    @Column({ name: "user_email" })
+    @Column({ name: "user_email", unique: true })
     email: string;
+
+    @Column({ name: "user_password" })
+    password: string;
 
     @Column({
         name: "user_role",

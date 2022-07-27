@@ -13,6 +13,20 @@ export default class CreateUserUseCase
     }
 
     async execute(request: ICreateUserDTO): Promise<boolean> {
-        return true;
+        const userDomain = User.create(request);
+        const userAlreadyExists = await this.userRepository.exists(
+            userDomain.email
+        );
+
+        if (userAlreadyExists) {
+            throw new Error("User already exists");
+        }
+
+        try {
+            await this.userRepository.save(userDomain);
+            return true;
+        } catch (error) {
+            throw new Error(`Error${error}`);
+        }
     }
 }
